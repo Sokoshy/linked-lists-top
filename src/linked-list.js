@@ -20,13 +20,28 @@
  *
  * Every body below is empty on purpose: that is the exercise.
  */
+import { Node } from "./node";
+
 export class LinkedList {
   constructor() {
-    // TODO
+    this.head = null;
+    this.count = 0;
   }
 
   append(value) {
-    // TODO
+    const newNode = new Node(value);
+
+    if(this.head === null){
+      this.head = newNode;
+    }else{
+      let current = this.head;
+      while(current.nextNode !== null) {
+        current = current.nextNode;
+      }
+      current.nextNode = newNode;
+    }
+
+    this.count++;
   }
 
   prepend(value) {

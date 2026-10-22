@@ -7,6 +7,7 @@
  */
 export class Node {
   constructor(value) {
-    // TODO
+    this.value = value;
+    this.nextNode = null;
   }
 }
