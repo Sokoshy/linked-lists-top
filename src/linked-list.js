@@ -24,17 +24,17 @@ import { Node } from "./node";
 
 export class LinkedList {
   constructor() {
-    this.head = null;
+    this.headNode = null;
     this.count = 0;
   }
 
   append(value) {
     const newNode = new Node(value);
 
-    if(this.head === null){
-      this.head = newNode;
+    if(this.headNode === null){
+      this.headNode = newNode;
     }else{
-      let current = this.head;
+      let current = this.headNode;
       while(current.nextNode !== null) {
         current = current.nextNode;
       }
@@ -47,18 +47,19 @@ export class LinkedList {
   prepend(value) {
     const newNode = new Node(value);
 
-    newNode.nextNode = this.head;
-    this.head = newNode;
+    newNode.nextNode = this.headNode;
+    this.headNode = newNode;
 
     this.count++;
   }
 
   size() {
-    // TODO
+    return this.count;
   }
 
   head() {
-    // TODO
+    if (this.headNode === null) return undefined;
+    return this.headNode.value;
   }
 
   tail() {
