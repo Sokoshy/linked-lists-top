@@ -45,7 +45,12 @@ export class LinkedList {
   }
 
   prepend(value) {
-    // TODO
+    const newNode = new Node(value);
+
+    newNode.nextNode = this.head;
+    this.head = newNode;
+
+    this.count++;
   }
 
   size() {
