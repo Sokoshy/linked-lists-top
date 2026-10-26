@@ -75,7 +75,17 @@ export class LinkedList {
   }
 
   at(index) {
-    // TODO
+    if(index < 0) return undefined;
+
+    let i = 0;
+    let current = this.headNode;
+    while(current !== null && i !== index) {
+      current = current.nextNode;
+      i++;
+    }
+
+    if (current === null) return undefined;
+    return current.value;
   }
 
   pop() {
