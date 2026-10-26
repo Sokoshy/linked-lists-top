@@ -66,6 +66,15 @@ describe("LinkedList", () => {
     expect(list.size()).toBe(1);
   });
 
+  test("pop vide la liste quand il ne reste qu'un nœud", () => {
+    const list = listOf("only");
+    expect(list.pop()).toBe("only");
+    expect(list.toString()).toBe("");
+    expect(list.size()).toBe(0);
+    expect(list.head()).toBeUndefined();
+    expect(list.tail()).toBeUndefined();
+  });
+
   test("pop renvoie undefined sur une liste vide", () => {
     expect(listOf().pop()).toBeUndefined();
   });
