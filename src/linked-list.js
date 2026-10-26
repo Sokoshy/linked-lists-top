@@ -154,7 +154,29 @@ export class LinkedList {
 
   // Extra credit
   insertAt(index, ...values) {
-    // TODO
+    if (index < 0 || index > this.count) throw new RangeError();
+    if (values.length === 0) return;
+
+    let prev = null;
+    let after = this.headNode;
+
+    for (let i = 0; i < index; i++) {
+      prev = after;
+      after = after.nextNode;
+    }
+
+    for (const value of values) {
+      const newNode = new Node(value);
+      if (prev === null) {
+        this.headNode = newNode;
+      }else {
+        prev.nextNode = newNode;
+      }
+
+      prev = newNode;
+      this.count++;
+    }
+    prev.nextNode = after;
   }
 
   removeAt(index) {
