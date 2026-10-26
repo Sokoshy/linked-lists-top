@@ -89,7 +89,20 @@ export class LinkedList {
   }
 
   pop() {
-    // TODO
+    if (this.headNode === null) return undefined;
+
+    const currentHead = this.headNode;
+    const currentNextNode = this.headNode.nextNode;
+
+    if(currentNextNode !== null){
+      this.headNode = currentNextNode;
+    }else {
+      this.headNode = null;
+    }
+
+    this.count--;
+
+    return currentHead.value;
   }
 
   contains(value) {
