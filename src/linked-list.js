@@ -106,7 +106,18 @@ export class LinkedList {
   }
 
   contains(value) {
-    // TODO
+    let current = this.headNode;
+    let i = 0;
+
+    while(i <= this.count && current !== null) {
+      if(current.value === value){
+        return true;
+      }
+      current = current.nextNode;
+      i++;
+    }
+
+    return false;
   }
 
   findIndex(value) {
