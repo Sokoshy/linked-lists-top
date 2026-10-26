@@ -136,7 +136,20 @@ export class LinkedList {
   }
 
   toString() {
-    // TODO
+    let resultToString = "";
+
+    if(this.headNode === null) return resultToString;
+
+    let current = this.headNode;
+
+    for (let i = 0; i < this.count; i++) {
+      resultToString += `( ${current.value} ) -> `;
+      current = current.nextNode;
+    }
+
+    resultToString += "null";
+
+    return resultToString;
   }
 
   // Extra credit
