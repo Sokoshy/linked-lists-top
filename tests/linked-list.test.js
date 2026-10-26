@@ -121,6 +121,41 @@ describe("LinkedList (extra credit)", () => {
     expect(() => list.insertAt(2, "x")).toThrow(RangeError); // size = 1
   });
 
+  test("insertAt insère en fin de liste quand index vaut size", () => {
+    const list = listOf(1, 2, 3);
+    list.insertAt(3, 4);
+    expect(list.toString()).toBe("( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> null");
+    expect(list.size()).toBe(4);
+  });
+
+  test("insertAt insère au milieu d'une liste plus longue", () => {
+    const list = listOf(1, 2, 3);
+    list.insertAt(2, 7, 8, 9);
+    expect(list.toString()).toBe("( 1 ) -> ( 2 ) -> ( 7 ) -> ( 8 ) -> ( 9 ) -> ( 3 ) -> null");
+    expect(list.size()).toBe(6);
+  });
+
+  test("insertAt insère une seule valeur au milieu", () => {
+    const list = listOf(1, 2, 3);
+    list.insertAt(1, 99);
+    expect(list.toString()).toBe("( 1 ) -> ( 99 ) -> ( 2 ) -> ( 3 ) -> null");
+    expect(list.size()).toBe(4);
+  });
+
+  test("insertAt sur une liste vide", () => {
+    const list = new LinkedList();
+    list.insertAt(0, "a", "b");
+    expect(list.toString()).toBe("( a ) -> ( b ) -> null");
+    expect(list.size()).toBe(2);
+  });
+
+  test("insertAt sans valeur ne change rien", () => {
+    const list = listOf(1, 2, 3);
+    list.insertAt(1);
+    expect(list.toString()).toBe("( 1 ) -> ( 2 ) -> ( 3 ) -> null");
+    expect(list.size()).toBe(3);
+  });
+
   test("removeAt retire le nœud à l'index donné", () => {
     const list = listOf("dog", "cat", "parrot");
     list.removeAt(1);
