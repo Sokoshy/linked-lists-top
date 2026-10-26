@@ -63,7 +63,15 @@ export class LinkedList {
   }
 
   tail() {
-    // TODO
+    if (this.headNode === null) return undefined;
+
+    let current = this.headNode;
+
+    while(current.nextNode !== null) {
+      current = current.nextNode;
+    }
+
+    return current.value;
   }
 
   at(index) {
