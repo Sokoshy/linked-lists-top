@@ -121,7 +121,18 @@ export class LinkedList {
   }
 
   findIndex(value) {
-    // TODO
+    if (this.headNode === null) return -1;
+
+    let current = this.headNode;
+
+    for (let i = 0; i < this.count; i++) {
+    if (current.value === value) {
+      return i;
+    }
+    current = current.nextNode;
+    }
+
+  return -1;
   }
 
   toString() {
