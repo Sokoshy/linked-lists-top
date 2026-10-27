@@ -180,6 +180,22 @@ export class LinkedList {
   }
 
   removeAt(index) {
-    // TODO
+    if (index < 0 || index >= this.count) throw new RangeError();
+
+    let prev = null;
+    let target = this.headNode;
+
+    for(let i = 0; i < index; i++){
+      prev = target;
+      target = target.nextNode;
+    }
+
+    if(prev === null){
+       this.headNode = target.nextNode;
+    }else {
+      prev.nextNode = target.nextNode;
+    }
+
+    this.count--;
   }
 }
